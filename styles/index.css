@@ -398,6 +398,49 @@ p {
     border: 1px dashed rgba(255, 255, 255, 0.1);
 }
 
+.card-image {
+    width: 100%;
+    height: 160px;
+    background: #0d1117;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #484f58;
+    margin-bottom: 1rem;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+
+    background-color: #0d1117;
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.iframe-preview-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Defines the zoom scale (0.3 = 30% view size) */
+    --scale: 0.3;
+}
+
+.iframe-preview-wrapper iframe {
+    /* Stretch the virtual viewport so that after scaling, it equals 100% of the wrapper width */
+    width: calc(100% / var(--scale));
+    height: calc(100% / var(--scale));
+    border: none;
+
+    /* Apply scale from top-left origin */
+    transform: scale(var(--scale));
+    transform-origin: top left;
+
+    pointer-events: none;
+    overflow: hidden;
+}
+
 .project-card h3 {
     color: #f8fafc;
     margin-bottom: 0.5rem;

@@ -68,7 +68,21 @@
 
             <div class="projects-grid">
                 <div class="project-card">
-                    <div class="project-img-placeholder">Project Preview</div>
+
+                    <!-- Overlay link: Makes the entire card clickable -->
+                    <a href="https://monkeyonalappy.vercel.app/" target="_blank" rel="noopener noreferrer"
+                        class="card-main-link" aria-label="Open Developer Portfolio"></a>
+
+                    <!--- Card Image --->
+                    <div class="card-image">
+                        <div class="iframe-preview-wrapper">
+                            <iframe src="https://monkeyonalappy.vercel.app/" title="Portfolio Preview" loading="lazy"
+                                scrolling="no"></iframe>
+                        </div>
+                    </div>
+
+                    <!--- Card -->
+                    <!-- <div class="project-img-placeholder">Project Preview</div> -->
                     <h3>Portfolio Website</h3>
                     <p>A responsive dark-themed developer portfolio built with semantic HTML and modern CSS animations.
                     </p>
