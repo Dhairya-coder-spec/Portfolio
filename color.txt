@@ -1,0 +1,7 @@
+Background #0D1117
+Borders/Cards #21262D
+Text (Primary)	Body Content	#C9D1D9
+Text (Secondary)	Captions	#8B949E
+Accent 1	Primary Action	#58A6FF
+Accent 2	Secondary Action	#7EE787
+Highlight	Attention	#F0883E

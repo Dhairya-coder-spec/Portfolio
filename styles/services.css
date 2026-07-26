@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #0D1117;
+    color: #C9D1D9;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 40px;
+    background-color: #171e28;
+}
+
+nav a {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: #C9D1D9;
+    padding-bottom: 4px;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 2px;
+    background-color: #8B949E;
+    transition: color 0.3s ease;
+    transition: width 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: #8B949E;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 0 23px;
+}
+
+.left {
+    font-size: 1.25rem;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+/* Main Container */
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    min-height: 80vh;
+}
+
+/* Page Header */
+.services-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.services-header h1 {
+    font-size: 2.75rem;
+    color: #C9D1D9;
+    margin-bottom: 0.75rem;
+}
+
+.highlight-text {
+    color: #58A6FF; /* Accent 1 */
+}
+
+.services-header p {
+    color: #8B949E; /* Text Secondary */
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+/* Service Card */
+.service-card {
+    position: relative;
+    background-color: #21262D; /* Borders/Cards */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    border-color: #58A6FF;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.featured-service {
+    border-color: rgba(126, 231, 135, 0.3); /* Subtle green border */
+}
+
+.service-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background-color: rgba(240, 136, 62, 0.15);
+    color: #F0883E; /* Highlight Attention */
+    border: 1px solid #F0883E;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+}
+
+/* Icons & Titles */
+.service-icon {
+    font-size: 2rem;
+    color: #58A6FF;
+    margin-bottom: 1.25rem;
+}
+
+.service-title {
+    font-size: 1.35rem;
+    color: #C9D1D9;
+    margin-bottom: 0.75rem;
+}
+
+.service-description {
+    color: #8B949E;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+/* Features List */
+.service-features {
+    list-style: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 1rem;
+}
+
+.service-features li {
+    font-size: 0.85rem;
+    color: #C9D1D9;
+    padding: 0.4rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.service-features li::before {
+    content: "✓";
+    color: #7EE787; /* Accent 2 */
+    font-weight: bold;
+}
+
+/* CTA Section */
+.services-cta {
+    background-color: #21262D;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.services-cta h2 {
+    font-size: 1.8rem;
+    color: #C9D1D9;
+    margin-bottom: 0.5rem;
+}
+
+.services-cta p {
+    color: #8B949E;
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.primary-btn {
+    background-color: #58A6FF;
+    color: #0D1117;
+}
+
+.primary-btn:hover {
+    background-color: #7EE787;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    border-top: 1px solid #21262D;
+    color: #8B949E;
+    font-size: 0.85rem;
+    margin-top: 4rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .services-header h1 {
+        font-size: 2.1rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}

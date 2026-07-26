@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #0D1117;
+    color: #C9D1D9;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 40px;
+    background-color: #171e28;
+}
+
+nav a {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    color: #C9D1D9;
+    padding-bottom: 4px;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 2px;
+    background-color: #8B949E;
+    transition: color 0.3s ease;
+    transition: width 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: #8B949E;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 0 23px;
+}
+
+.left {
+    font-size: 1.25rem;
+}
+
+/* Base Layout */
+.firstSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 80vh;
+}
+
+.leftSection {
+    flex: 1;
+}
+
+.rightSection {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Typography */
+h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin-bottom: 1rem;
+}
+
+.name {
+    color: #00d2ff;
+    /* Vibrant blue accent */
+    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+    -webkit-background-clip: text;
+    background-clip: text;               /*--------*/
+    -webkit-text-fill-color: transparent;
+}
+
+p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #94a3b8;
+    margin-bottom: 2rem;
+}
+
+.highlight {
+    color: #f8fafc;
+    font-weight: 600;
+}
+
+/* Buttons */
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+}
+
+.primary-btn {
+    background-color: #00d2ff;
+    color: #0f172a;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 210, 255, 0.4);
+}
+
+.secondary-btn {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #f8fafc;
+}
+
+.secondary-btn:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .firstSection {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1rem;
+    }
+
+    .cta-buttons {
+        justify-content: center;
+    }
+}
+
+/* Container sizing and centering */
+.rightSection {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Avatar container - controls layout and glow */
+.avatar-container {
+  width: 320px;            /* Fixes the overall width */
+  height: 320px;           /* Makes container a perfect square */
+  border-radius: 50%;      /* Makes it circular (or change to 24px for a rounded square) */
+  position: relative;
+  overflow: hidden;        /* Keeps the image inside the borders */
+  
+  /* Modern styling: accent border & subtle glow */
+  border: 3px solid rgba(0, 210, 255, 0.4); 
+  box-shadow: 0 0 25px rgba(0, 210, 255, 0.15),
+              0 15px 35px rgba(0, 0, 0, 0.4);
+  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Image behavior inside container */
+.avatar-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* Prevents the image from stretching/distorting */
+  object-position: top center; /* Focuses on the face area */
+  display: block;
+}
+
+/* Hover Effect */
+.avatar-container:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 210, 255, 0.8);
+  box-shadow: 0 0 35px rgba(0, 210, 255, 0.3),
+              0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive adjustment for mobile screens */
+@media (max-width: 768px) {
+  .avatar-container {
+    width: 240px;
+    height: 240px;
+    margin-top: 1.5rem;
+  }
+}
+
+.skillsSection {
+    max-width: 1200px;
+    margin: 2rem auto 5rem;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.skillsSection h2 {
+    font-size: 1.8rem;
+    color: #f8fafc;
+    margin-bottom: 1.5rem;
+}
+
+.skills-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.skill-card {
+    background-color: #171e28;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    color: #00d2ff;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-3px);
+    border-color: #00d2ff;
+}
+
+.featuredProjects {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    color: #f8fafc;
+}
+
+.see-all {
+    color: #00d2ff;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.see-all:hover {
+    text-decoration: underline;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: #171e28;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.project-img-placeholder {
+    width: 100%;
+    height: 160px;
+    background: #0d1117;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #484f58;
+    margin-bottom: 1rem;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.project-card h3 {
+    color: #f8fafc;
+    margin-bottom: 0.5rem;
+}
+
+.project-card p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.project-tags span {
+    font-size: 0.75rem;
+    background: rgba(0, 210, 255, 0.1);
+    color: #00d2ff;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+}
+
+footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background-color: #171e28;
+    padding: 1.5rem 0;
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.footer-content p {
+    font-size: 0.85rem;
+    color: #8b949e;
+    margin-bottom: 0;
+}
