@@ -11,12 +11,40 @@ body {
     font-family: 'JetBrains Mono', monospace;
 }
 
+/* Ensure proper box sizing and image scaling everywhere */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Base Responsive Typography */
+html {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+        /* Slightly scales down text proportionally on smaller screens */
+    }
+}
+
 nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    height: 40px;
+    padding: 0.75rem 1.5rem;
+    min-height: 50px;
+    height: auto;
     background-color: #171e28;
+    flex-wrap: wrap;
+    gap: 0.75rem;
 }
 
 nav a {
@@ -51,15 +79,37 @@ nav a:hover::after {
 nav ul {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    /* Replaces fixed margins for flexible wrapping */
 }
 
 nav ul li {
     list-style: none;
-    margin: 0 23px;
+    margin: 0;
+    /* Clears fixed side margins */
 }
 
 .left {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    nav {
+        justify-content: center;
+        text-align: center;
+        padding: 0.75rem 1rem;
+    }
+
+    nav ul {
+        gap: 0.75rem 1rem;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+    }
 }
 
 /* Base Layout */
@@ -67,11 +117,48 @@ nav ul li {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 3rem;
-    padding: 4rem 2rem;
+    gap: 2.5rem;
+    padding: 3rem 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
-    min-height: 80vh;
+    min-height: calc(100vh - 60px);
+}
+
+@media (max-width: 850px) {
+    .firstSection {
+        flex-direction: column-reverse;
+        /* Puts text first, avatar below or vice versa */
+        text-align: center;
+        padding: 2rem 1rem;
+        min-height: auto;
+        gap: 2rem;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .cta-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .cta-buttons .btn {
+        width: 100%;
+        /* Full width buttons on small phones */
+        max-width: 280px;
+        text-align: center;
+    }
+
+    .avatar-container {
+        width: 220px;
+        height: 220px;
+    }
 }
 
 .leftSection {
@@ -97,7 +184,8 @@ h1 {
     /* Vibrant blue accent */
     background: linear-gradient(135deg, #00d2ff, #3a7bd5);
     -webkit-background-clip: text;
-    background-clip: text;               /*--------*/
+    background-clip: text;
+    /*--------*/
     -webkit-text-fill-color: transparent;
 }
 
@@ -161,52 +249,58 @@ p {
 
 /* Container sizing and centering */
 .rightSection {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Avatar container - controls layout and glow */
 .avatar-container {
-  width: 320px;            /* Fixes the overall width */
-  height: 320px;           /* Makes container a perfect square */
-  border-radius: 50%;      /* Makes it circular (or change to 24px for a rounded square) */
-  position: relative;
-  overflow: hidden;        /* Keeps the image inside the borders */
-  
-  /* Modern styling: accent border & subtle glow */
-  border: 3px solid rgba(0, 210, 255, 0.4); 
-  box-shadow: 0 0 25px rgba(0, 210, 255, 0.15),
-              0 15px 35px rgba(0, 0, 0, 0.4);
-  
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 320px;
+    /* Fixes the overall width */
+    height: 320px;
+    /* Makes container a perfect square */
+    border-radius: 50%;
+    /* Makes it circular (or change to 24px for a rounded square) */
+    position: relative;
+    overflow: hidden;
+    /* Keeps the image inside the borders */
+
+    /* Modern styling: accent border & subtle glow */
+    border: 3px solid rgba(0, 210, 255, 0.4);
+    box-shadow: 0 0 25px rgba(0, 210, 255, 0.15),
+        0 15px 35px rgba(0, 0, 0, 0.4);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Image behavior inside container */
 .avatar-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;       /* Prevents the image from stretching/distorting */
-  object-position: top center; /* Focuses on the face area */
-  display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Prevents the image from stretching/distorting */
+    object-position: top center;
+    /* Focuses on the face area */
+    display: block;
 }
 
 /* Hover Effect */
 .avatar-container:hover {
-  transform: translateY(-6px);
-  border-color: rgba(0, 210, 255, 0.8);
-  box-shadow: 0 0 35px rgba(0, 210, 255, 0.3),
-              0 20px 40px rgba(0, 0, 0, 0.5);
+    transform: translateY(-6px);
+    border-color: rgba(0, 210, 255, 0.8);
+    box-shadow: 0 0 35px rgba(0, 210, 255, 0.3),
+        0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
 /* Responsive adjustment for mobile screens */
 @media (max-width: 768px) {
-  .avatar-container {
-    width: 240px;
-    height: 240px;
-    margin-top: 1.5rem;
-  }
+    .avatar-container {
+        width: 240px;
+        height: 240px;
+        margin-top: 1.5rem;
+    }
 }
 
 .skillsSection {

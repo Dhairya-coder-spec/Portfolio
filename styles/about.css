@@ -11,10 +11,14 @@ body {
 
 nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    height: 40px;
+    padding: 0.75rem 1.5rem;
+    min-height: 50px;
+    height: auto;
     background-color: #171e28;
+    flex-wrap: wrap;
+    gap: 0.75rem;
 }
 
 nav a {
@@ -49,15 +53,37 @@ nav a:hover::after {
 nav ul {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    /* Replaces fixed margins for flexible wrapping */
 }
 
 nav ul li {
     list-style: none;
-    margin: 0 23px;
+    margin: 0;
+    /* Clears fixed side margins */
 }
 
 .left {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    nav {
+        justify-content: center;
+        text-align: center;
+        padding: 0.75rem 1rem;
+    }
+
+    nav ul {
+        gap: 0.75rem 1rem;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+    }
 }
 
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
@@ -90,11 +116,13 @@ nav ul li {
 }
 
 .highlight-text {
-    color: #58A6FF; /* Accent 1 */
+    color: #58A6FF;
+    /* Accent 1 */
 }
 
 .accent-text {
-    color: #7EE787; /* Accent 2 */
+    color: #7EE787;
+    /* Accent 2 */
 }
 
 .subtitle {
@@ -113,7 +141,8 @@ nav ul li {
 /* Stats Card Panel */
 .stats-card {
     flex: 1;
-    background-color: #21262D; /* Card Background */
+    background-color: #21262D;
+    /* Card Background */
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
     padding: 2rem;
@@ -138,7 +167,8 @@ nav ul li {
 .stat-number {
     font-size: 2rem;
     font-weight: 700;
-    color: #F0883E; /* Attention Highlight */
+    color: #F0883E;
+    /* Attention Highlight */
 }
 
 .stat-label {
@@ -201,7 +231,8 @@ nav ul li {
 
 .skill-level {
     font-size: 0.75rem;
-    color: #7EE787; /* Accent 2 Secondary Action */
+    color: #7EE787;
+    /* Accent 2 Secondary Action */
     background: rgba(126, 231, 135, 0.1);
     padding: 0.2rem 0.5rem;
     border-radius: 4px;

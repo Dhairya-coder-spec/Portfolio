@@ -12,10 +12,14 @@ body {
 
 nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    height: 40px;
+    padding: 0.75rem 1.5rem;
+    min-height: 50px;
+    height: auto;
     background-color: #171e28;
+    flex-wrap: wrap;
+    gap: 0.75rem;
 }
 
 nav a {
@@ -50,15 +54,37 @@ nav a:hover::after {
 nav ul {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    /* Replaces fixed margins for flexible wrapping */
 }
 
 nav ul li {
     list-style: none;
-    margin: 0 23px;
+    margin: 0;
+    /* Clears fixed side margins */
 }
 
 .left {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    nav {
+        justify-content: center;
+        text-align: center;
+        padding: 0.75rem 1rem;
+    }
+
+    nav ul {
+        gap: 0.75rem 1rem;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+    }
 }
 
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
@@ -84,11 +110,13 @@ nav ul li {
 }
 
 .highlight-text {
-    color: #58A6FF; /* Accent 1 */
+    color: #58A6FF;
+    /* Accent 1 */
 }
 
 .projects-header p {
-    color: #8B949E; /* Text Secondary */
+    color: #8B949E;
+    /* Text Secondary */
     font-size: 1.05rem;
     max-width: 600px;
     margin: 0 auto;
@@ -104,7 +132,8 @@ nav ul li {
 
 /* Project Card */
 .project-card {
-    background-color: #21262D; /* Borders/Cards Color */
+    background-color: #21262D;
+    /* Borders/Cards Color */
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
     overflow: hidden;
@@ -115,7 +144,8 @@ nav ul li {
 
 .project-card:hover {
     transform: translateY(-6px);
-    border-color: #58A6FF; /* Accent 1 on hover */
+    border-color: #58A6FF;
+    /* Accent 1 on hover */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
@@ -154,7 +184,8 @@ nav ul li {
 
 .status-badge.featured {
     background-color: rgba(240, 136, 62, 0.15);
-    color: #F0883E; /* Highlight Attention Color */
+    color: #F0883E;
+    /* Highlight Attention Color */
     border-color: #F0883E;
 }
 
@@ -191,7 +222,8 @@ nav ul li {
 .tech-stack span {
     font-size: 0.75rem;
     background-color: rgba(88, 166, 255, 0.1);
-    color: #58A6FF; /* Accent 1 */
+    color: #58A6FF;
+    /* Accent 1 */
     padding: 0.25rem 0.65rem;
     border-radius: 6px;
     border: 1px solid rgba(88, 166, 255, 0.2);
@@ -215,12 +247,14 @@ nav ul li {
 }
 
 .primary-btn {
-    background-color: #58A6FF; /* Accent 1 Primary Action */
+    background-color: #58A6FF;
+    /* Accent 1 Primary Action */
     color: #0D1117;
 }
 
 .primary-btn:hover {
-    background-color: #7EE787; /* Accent 2 Secondary Action on Hover */
+    background-color: #7EE787;
+    /* Accent 2 Secondary Action on Hover */
 }
 
 .secondary-btn {
@@ -252,5 +286,43 @@ footer {
 
     .projects-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+
+/*---------------*/
+/* Flexible Grid Rule for Projects, Services & Skills */
+.projects-grid,
+.services-grid,
+.skills-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Contact Page Mobile Stacking */
+@media (max-width: 768px) {
+
+    .contact-wrapper,
+    .about-hero {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .projects-header h1,
+    .services-header h1,
+    .contact-header h1,
+    .bio-text h1 {
+        font-size: 2rem;
+    }
+
+    .contact-form {
+        padding: 1.25rem;
+    }
+
+    .social-links {
+        justify-content: center;
+        flex-wrap: wrap;
     }
 }

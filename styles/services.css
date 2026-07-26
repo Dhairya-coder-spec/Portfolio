@@ -11,10 +11,14 @@ body {
 
 nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    height: 40px;
+    padding: 0.75rem 1.5rem;
+    min-height: 50px;
+    height: auto;
     background-color: #171e28;
+    flex-wrap: wrap;
+    gap: 0.75rem;
 }
 
 nav a {
@@ -49,15 +53,37 @@ nav a:hover::after {
 nav ul {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    /* Replaces fixed margins for flexible wrapping */
 }
 
 nav ul li {
     list-style: none;
-    margin: 0 23px;
+    margin: 0;
+    /* Clears fixed side margins */
 }
 
 .left {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    nav {
+        justify-content: center;
+        text-align: center;
+        padding: 0.75rem 1rem;
+    }
+
+    nav ul {
+        gap: 0.75rem 1rem;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+    }
 }
 
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
@@ -83,11 +109,13 @@ nav ul li {
 }
 
 .highlight-text {
-    color: #58A6FF; /* Accent 1 */
+    color: #58A6FF;
+    /* Accent 1 */
 }
 
 .services-header p {
-    color: #8B949E; /* Text Secondary */
+    color: #8B949E;
+    /* Text Secondary */
     font-size: 1.05rem;
     max-width: 600px;
     margin: 0 auto;
@@ -105,7 +133,8 @@ nav ul li {
 /* Service Card */
 .service-card {
     position: relative;
-    background-color: #21262D; /* Borders/Cards */
+    background-color: #21262D;
+    /* Borders/Cards */
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
     padding: 2rem;
@@ -121,7 +150,8 @@ nav ul li {
 }
 
 .featured-service {
-    border-color: rgba(126, 231, 135, 0.3); /* Subtle green border */
+    border-color: rgba(126, 231, 135, 0.3);
+    /* Subtle green border */
 }
 
 .service-badge {
@@ -129,7 +159,8 @@ nav ul li {
     top: 16px;
     right: 16px;
     background-color: rgba(240, 136, 62, 0.15);
-    color: #F0883E; /* Highlight Attention */
+    color: #F0883E;
+    /* Highlight Attention */
     border: 1px solid #F0883E;
     font-size: 0.75rem;
     padding: 0.2rem 0.6rem;
@@ -175,7 +206,8 @@ nav ul li {
 
 .service-features li::before {
     content: "✓";
-    color: #7EE787; /* Accent 2 */
+    color: #7EE787;
+    /* Accent 2 */
     font-weight: bold;
 }
 
@@ -237,5 +269,42 @@ footer {
 
     .services-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/*---------------*/
+/* Flexible Grid Rule for Projects, Services & Skills */
+.projects-grid,
+.services-grid,
+.skills-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Contact Page Mobile Stacking */
+@media (max-width: 768px) {
+
+    .contact-wrapper,
+    .about-hero {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .projects-header h1,
+    .services-header h1,
+    .contact-header h1,
+    .bio-text h1 {
+        font-size: 2rem;
+    }
+
+    .contact-form {
+        padding: 1.25rem;
+    }
+
+    .social-links {
+        justify-content: center;
+        flex-wrap: wrap;
     }
 }
