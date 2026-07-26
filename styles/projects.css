@@ -326,3 +326,196 @@ footer {
         flex-wrap: wrap;
     }
 }
+
+
+
+
+
+
+
+
+
+/* Card Container */
+.project-card {
+    position: relative;
+    /* Required for the overlay link */
+    background-color: #171e28;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    border-color: #38bdf8;
+}
+
+/* Invisible click overlay across the whole card */
+.card-main-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Card Preview Header */
+.card-image {
+    background-color: #0d1117;
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.iframe-preview-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.iframe-preview-wrapper iframe {
+    width: 1200px;
+    height: 700px;
+    border: none;
+    transform: scale(0.3);
+    transform-origin: 0 0;
+    pointer-events: none;
+    /* Passes clicks directly to card-main-link */
+    overflow: hidden;
+}
+
+.status-badge {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 2;
+    font-size: 0.75rem;
+    color: #8b949e;
+    background-color: rgba(13, 17, 23, 0.85);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.25rem 0.65rem;
+    border-radius: 20px;
+}
+
+/* Content Area */
+.card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-title {
+    color: #f0f6fc;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.project-description {
+    color: #8b949e;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+}
+
+.tech-stack {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.tech-stack span {
+    background-color: rgba(56, 189, 248, 0.08);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    font-family: monospace;
+}
+
+/* Action Buttons Sitting Above Overlay */
+.card-actions {
+    position: relative;
+    z-index: 3;
+    /* Places buttons above the main card overlay link */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.btn {
+    text-align: center;
+    padding: 0.65rem 1rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.primary-btn {
+    background-color: #38bdf8;
+    color: #0d1117;
+    border: 1px solid #38bdf8;
+}
+
+.primary-btn:hover {
+    background-color: #0284c7;
+    border-color: #0284c7;
+    color: #ffffff;
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: #f0f6fc;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.secondary-btn:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: #f0f6fc;
+}
+
+/* Card Preview Header */
+.card-image {
+    background-color: #0d1117;
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.iframe-preview-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Defines the zoom scale (0.3 = 30% view size) */
+    --scale: 0.3;
+}
+
+.iframe-preview-wrapper iframe {
+    /* Stretch the virtual viewport so that after scaling, it equals 100% of the wrapper width */
+    width: calc(100% / var(--scale));
+    height: calc(100% / var(--scale));
+    border: none;
+
+    /* Apply scale from top-left origin */
+    transform: scale(var(--scale));
+    transform-origin: top left;
+
+    pointer-events: none;
+    overflow: hidden;
+}
